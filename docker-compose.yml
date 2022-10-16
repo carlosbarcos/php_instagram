@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: mysql/mysql-server:8.0
+    container_name: db_phptagram
+    restart: always
+    ports:
+      - 43306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: '5dvwX%9piOLWu3J71#Hk'
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: 'phptagram'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: '^7F2y3s0voZhxwK7C@gK'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - ./mysql_data/:/var/lib/mysql
+    networks:
+      - net_phptagram
+  web:
+    depends_on:
+      - db
+    build: ./docker_files/
+    container_name: web_phptagram
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 8080:80
+    restart: always
+    networks:
+      - net_phptagram
+networks:
+    net_phptagram:
+        driver: bridge

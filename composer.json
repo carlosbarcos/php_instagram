@@ -1,0 +1,17 @@
+{
+    "name": "sigma/phptagram",
+    "autoload": {
+        "psr-4": {
+            "Sigma\\Phptagram\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Carlos Barcos",
+            "email": "fbarcos8@hotmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.6"
+    }
+}
