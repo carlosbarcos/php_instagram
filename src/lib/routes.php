@@ -3,8 +3,12 @@
 
   session_start();
 
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__."/../config");
+  $dotenv->load();
+
   $router->get('/',function() {
     print "inicio";
+    print $_ENV["DB"];
   });
 
   $router->get('/login',function() {
